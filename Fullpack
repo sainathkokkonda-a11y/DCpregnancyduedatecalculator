@@ -1,0 +1,254 @@
+<div class="due-date-card">
+  <div class="due-date-header">
+    <h2>Pregnancy Due Date Calculator</h2>
+    <p>Calculate your estimated due date instantly using your Last Menstrual Period (LMP).</p>
+  </div>
+
+  <div class="due-date-body">
+    <!-- Input Section -->
+    <div class="input-block">
+      <label class="blue-label">First Day of Your Last Period (LMP):</label>
+      <div class="input-wrapper">
+        <input type="date" id="lmpDate" class="blue-input">
+      </div>
+    </div>
+
+    <div class="input-block">
+      <label class="blue-label">Average Cycle Length (Days):</label>
+      <div class="input-wrapper">
+        <select id="cycleLength" class="blue-input">
+          <option value="22">22 Days</option>
+          <option value="23">23 Days</option>
+          <option value="24">24 Days</option>
+          <option value="25">25 Days</option>
+          <option value="26">26 Days</option>
+          <option value="27">27 Days</option>
+          <option value="28" selected>28 Days (Standard)</option>
+          <option value="29">29 Days</option>
+          <option value="30">30 Days</option>
+          <option value="31">31 Days</option>
+          <option value="32">32 Days</option>
+          <option value="33">33 Days</option>
+          <option value="34">34 Days</option>
+          <option value="35">35 Days</option>
+        </select>
+      </div>
+    </div>
+
+    <button type="button" class="blue-calc-btn" onclick="calculateDueDate()">Calculate Due Date</button>
+
+    <!-- Results Display -->
+    <div id="resultBox" class="result-container" style="display: none;">
+      <h3 class="blue-subheading">Estimated Results</h3>
+      
+      <div class="result-highlight">
+        <span class="res-title">Estimated Due Date</span>
+        <span class="res-value" id="dueDateVal">-</span>
+      </div>
+
+      <div class="details-grid">
+        <div class="detail-card">
+          <span class="detail-label">Current Progress</span>
+          <span class="detail-val" id="gestationVal">-</span>
+        </div>
+        <div class="detail-card">
+          <span class="detail-label">Current Trimester</span>
+          <span class="detail-val" id="trimesterVal">-</span>
+        </div>
+        <div class="detail-card">
+          <span class="detail-label">Conception Date (Est.)</span>
+          <span class="detail-val" id="conceptionVal">-</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .due-date-card {
+    max-width: 550px;
+    margin: 30px auto;
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+    border: 2px solid #1565c0;
+    overflow: hidden;
+  }
+  .due-date-header {
+    background: #1565c0;
+    padding: 24px 20px;
+    text-align: center;
+    color: #ffffff;
+  }
+  .due-date-header h2 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: bold;
+    color: #ffffff;
+  }
+  .due-date-header p {
+    margin: 8px 0 0 0;
+    font-size: 14px;
+    color: #e3f2fd;
+    opacity: 0.95;
+  }
+  .due-date-body {
+    padding: 24px;
+  }
+  .input-block {
+    margin-bottom: 20px;
+  }
+  .blue-label {
+    display: block;
+    font-weight: bold;
+    color: #1565c0;
+    margin-bottom: 8px;
+    font-size: 15px;
+  }
+  .input-wrapper {
+    background: #ffffff;
+    border: 1.5px solid #90caf9;
+    border-radius: 8px;
+    padding: 2px;
+  }
+  .input-wrapper:focus-within {
+    border-color: #1565c0;
+  }
+  .blue-input {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 15px;
+    color: #333;
+    box-sizing: border-box;
+  }
+  .blue-calc-btn {
+    width: 100%;
+    padding: 14px;
+    background-color: #1565c0;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  .blue-calc-btn:hover {
+    background-color: #0d47a1;
+  }
+  .result-container {
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 2px dashed #90caf9;
+    text-align: center;
+  }
+  .blue-subheading {
+    font-size: 18px;
+    color: #1565c0;
+    margin-bottom: 15px;
+  }
+  .result-highlight {
+    background: #e3f2fd;
+    border: 1px solid #90caf9;
+    border-radius: 10px;
+    padding: 16px;
+    margin-bottom: 15px;
+  }
+  .res-title {
+    display: block;
+    font-size: 13px;
+    color: #1565c0;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+  }
+  .res-value {
+    display: block;
+    font-size: 22px;
+    font-weight: bold;
+    color: #0d47a1;
+    margin-top: 4px;
+  }
+  .details-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 10px;
+  }
+  .detail-card {
+    background: #f9fbfd;
+    border: 1px solid #e3f2fd;
+    border-radius: 8px;
+    padding: 12px;
+  }
+  .detail-label {
+    display: block;
+    font-size: 12px;
+    color: #666;
+  }
+  .detail-val {
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
+    color: #1565c0;
+    margin-top: 4px;
+  }
+</style>
+
+<script>
+  function calculateDueDate() {
+    const lmpInput = document.getElementById('lmpDate').value;
+    if (!lmpInput) {
+      alert('Please select the first day of your last period (LMP).');
+      return;
+    }
+
+    const cycleDays = parseInt(document.getElementById('cycleLength').value);
+    const lmpDate = new Date(lmpInput);
+    
+    // Standard Naegele's rule calculation adjusted for cycle length
+    // Due Date = LMP + 280 days + (Cycle length - 288 days adjustment)
+    const dueDate = new Date(lmpDate.getTime());
+    dueDate.setDate(dueDate.getDate() + 280 + (cycleDays - 28));
+
+    // Conception estimate (LMP + 14 days + cycle adjustment)
+    const conceptionDate = new Date(lmpDate.getTime());
+    conceptionDate.setDate(conceptionDate.getDate() + 14 + (cycleDays - 28));
+
+    // Current Gestational Age
+    const today = new Date();
+    const diffTime = today - lmpDate;
+    const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+
+    let gestationText = "0 Weeks";
+    let trimesterText = "1st Trimester";
+
+    if (diffDays > 0) {
+      const weeks = Math.floor(diffDays / 7);
+      const days = diffDays % 7;
+      gestationText = `${weeks} Weeks, ${days} Days`;
+
+      if (weeks >= 28) {
+        trimesterText = "3rd Trimester";
+      } else if (weeks >= 13) {
+        trimesterText = "2nd Trimester";
+      } else {
+        trimesterText = "1st Trimester";
+      }
+    } else {
+      gestationText = "Not Started Yet";
+    }
+
+    const options = { year: 'numeric', month: 'long', day: 'numeric' };
+    
+    document.getElementById('dueDateVal').innerText = dueDate.toLocaleDateString('en-US', options);
+    document.getElementById('gestationVal').innerText = gestationText;
+    document.getElementById('trimesterVal').innerText = trimesterText;
+    document.getElementById('conceptionVal').innerText = conceptionDate.toLocaleDateString('en-US', options);
+
+    document.getElementById('resultBox').style.display = 'block';
+  }
+</script>
