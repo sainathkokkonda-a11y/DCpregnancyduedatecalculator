@@ -1,0 +1,65 @@
+<div class="due-date-card">
+  <div class="due-date-header">
+    <h2>Pregnancy Due Date Calculator</h2>
+    <p>Calculate your estimated due date instantly using your Last Menstrual Period (LMP).</p>
+  </div>
+
+  <div class="due-date-body">
+    <!-- Input Section -->
+    <div class="input-block">
+      <label class="blue-label">First Day of Your Last Period (LMP):</label>
+      <div class="input-wrapper">
+        <input type="date" id="lmpDate" class="blue-input">
+      </div>
+    </div>
+
+    <div class="input-block">
+      <label class="blue-label">Average Cycle Length (Days):</label>
+      <div class="input-wrapper">
+        <select id="cycleLength" class="blue-input">
+          <option value="22">22 Days</option>
+          <option value="23">23 Days</option>
+          <option value="24">24 Days</option>
+          <option value="25">25 Days</option>
+          <option value="26">26 Days</option>
+          <option value="27">27 Days</option>
+          <option value="28" selected>28 Days (Standard)</option>
+          <option value="29">29 Days</option>
+          <option value="30">30 Days</option>
+          <option value="31">31 Days</option>
+          <option value="32">32 Days</option>
+          <option value="33">33 Days</option>
+          <option value="34">34 Days</option>
+          <option value="35">35 Days</option>
+        </select>
+      </div>
+    </div>
+
+    <button type="button" class="blue-calc-btn" onclick="calculateDueDate()">Calculate Due Date</button>
+
+    <!-- Results Display -->
+    <div id="resultBox" class="result-container" style="display: none;">
+      <h3 class="blue-subheading">Estimated Results</h3>
+      
+      <div class="result-highlight">
+        <span class="res-title">Estimated Due Date</span>
+        <span class="res-value" id="dueDateVal">-</span>
+      </div>
+
+      <div class="details-grid">
+        <div class="detail-card">
+          <span class="detail-label">Current Progress</span>
+          <span class="detail-val" id="gestationVal">-</span>
+        </div>
+        <div class="detail-card">
+          <span class="detail-label">Current Trimester</span>
+          <span class="detail-val" id="trimesterVal">-</span>
+        </div>
+        <div class="detail-card">
+          <span class="detail-label">Conception Date (Est.)</span>
+          <span class="detail-val" id="conceptionVal">-</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
