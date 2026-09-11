@@ -1,0 +1,131 @@
+.due-date-card {
+  max-width: 550px;
+  margin: 30px auto;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+  border: 2px solid #1565c0;
+  overflow: hidden;
+}
+.due-date-header {
+  background: #1565c0;
+  padding: 24px 20px;
+  text-align: center;
+  color: #ffffff;
+}
+.due-date-header h2 {
+  margin: 0;
+  font-size: 24px;
+  font-weight: bold;
+  color: #ffffff;
+}
+.due-date-header p {
+  margin: 8px 0 0 0;
+  font-size: 14px;
+  color: #e3f2fd;
+  opacity: 0.95;
+}
+.due-date-body {
+  padding: 24px;
+}
+.input-block {
+  margin-bottom: 20px;
+}
+.blue-label {
+  display: block;
+  font-weight: bold;
+  color: #1565c0;
+  margin-bottom: 8px;
+  font-size: 15px;
+}
+.input-wrapper {
+  background: #ffffff;
+  border: 1.5px solid #90caf9;
+  border-radius: 8px;
+  padding: 2px;
+}
+.input-wrapper:focus-within {
+  border-color: #1565c0;
+}
+.blue-input {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 15px;
+  color: #333;
+  box-sizing: border-box;
+}
+.blue-calc-btn {
+  width: 100%;
+  padding: 14px;
+  background-color: #1565c0;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+.blue-calc-btn:hover {
+  background-color: #0d47a1;
+}
+.result-container {
+  margin-top: 25px;
+  padding-top: 20px;
+  border-top: 2px dashed #90caf9;
+  text-align: center;
+}
+.blue-subheading {
+  font-size: 18px;
+  color: #1565c0;
+  margin-bottom: 15px;
+}
+.result-highlight {
+  background: #e3f2fd;
+  border: 1px solid #90caf9;
+  border-radius: 10px;
+  padding: 16px;
+  margin-bottom: 15px;
+}
+.res-title {
+  display: block;
+  font-size: 13px;
+  color: #1565c0;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+}
+.res-value {
+  display: block;
+  font-size: 22px;
+  font-weight: bold;
+  color: #0d47a1;
+  margin-top: 4px;
+}
+.details-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 10px;
+}
+.detail-card {
+  background: #f9fbfd;
+  border: 1px solid #e3f2fd;
+  border-radius: 8px;
+  padding: 12px;
+}
+.detail-label {
+  display: block;
+  font-size: 12px;
+  color: #666;
+}
+.detail-val {
+  display: block;
+  font-size: 14px;
+  font-weight: bold;
+  color: #1565c0;
+  margin-top: 4px;
+}
